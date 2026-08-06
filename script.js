@@ -71,21 +71,64 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ============ Form validation + AJAX submit with modal ============
+const fieldErrorMessages = {
+  nombre: 'Solo letras y espacios (mínimo 2 caracteres).',
+  telefono: 'Solo números (mínimo 6 dígitos).',
+  email: 'Introduce un email válido.',
+  ciudad: 'Solo letras, espacios y comas.',
+  default: 'Este dato no es válido.',
+};
+
+function messageKeyFor(field) {
+  const id = (field.id || '').toLowerCase();
+  const type = field.type;
+  if (id.includes('nombre')) return 'nombre';
+  if (id.includes('telefono')) return 'telefono';
+  if (id.includes('ciudad')) return 'ciudad';
+  if (type === 'email' || id.includes('email')) return 'email';
+  return 'default';
+}
+
+function setFieldError(field, message) {
+  field.style.borderColor = message ? '#ef4444' : '';
+  const errorEl = field.parentElement.querySelector(`.field-error[data-for="${field.id}"]`);
+  if (errorEl) errorEl.textContent = message || '';
+}
+
 document.querySelectorAll('.lead-form').forEach((form) => {
+  // Live validation as the user types/leaves a field
+  form.querySelectorAll('input[pattern], input[required], textarea[required]').forEach((field) => {
+    field.addEventListener('input', () => {
+      if (field.value.trim() === '') {
+        setFieldError(field, '');
+        return;
+      }
+      setFieldError(field, field.checkValidity() ? '' : fieldErrorMessages[messageKeyFor(field)] || fieldErrorMessages.default);
+    });
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const requiredFields = form.querySelectorAll('[required]');
     let valid = true;
+    let firstInvalid = null;
     requiredFields.forEach((field) => {
-      if (!field.value.trim()) {
+      const empty = !field.value.trim();
+      const invalidPattern = !empty && !field.checkValidity();
+
+      if (empty || invalidPattern) {
         valid = false;
-        field.style.borderColor = '#ef4444';
+        setFieldError(field, empty ? 'Este campo es obligatorio.' : (fieldErrorMessages[messageKeyFor(field)] || fieldErrorMessages.default));
+        if (!firstInvalid) firstInvalid = field;
       } else {
-        field.style.borderColor = '';
+        setFieldError(field, '');
       }
     });
-    if (!valid) return;
+    if (!valid) {
+      firstInvalid?.focus();
+      return;
+    }
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.textContent : '';

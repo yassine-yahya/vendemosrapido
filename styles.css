@@ -320,6 +320,19 @@ ul {
     box-shadow: 0 0 0 3px rgba(34, 197, 94, .18);
 }
 
+.field-error {
+    display: block;
+    color: #ef4444;
+    font-size: 12.5px;
+    margin: -8px 0 12px;
+    min-height: 15px;
+}
+
+.field-error:empty {
+    display: none;
+    margin: 0;
+}
+
 .form-note {
     font-size: 12.5px;
     color: var(--ink-soft);
