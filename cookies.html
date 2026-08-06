@@ -4,72 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias! | Vendemos Rápido</title>
+    <title>Política de Cookies | Vendemos Rápido</title>
     <meta name="robots" content="noindex, follow">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .thanks-wrap {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(160deg, #0f2e2b, #123a36 60%, #0b2422);
-            color: #fff;
-            text-align: center;
-            padding: 24px;
-        }
-
-        .thanks-card {
-            max-width: 520px;
-        }
-
-        .thanks-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: rgba(34, 197, 94, .15);
-            border: 1px solid rgba(34, 197, 94, .4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 34px;
-            color: #22c55e;
-        }
-
-        .thanks-card h1 {
-            font-size: clamp(26px, 4vw, 36px);
-            margin: 0 0 14px;
-        }
-
-        .thanks-card p {
-            color: rgba(255, 255, 255, .75);
-            font-size: 16px;
-            margin: 0 0 32px;
-        }
-
-        .thanks-actions {
-            display: flex;
-            gap: 14px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="thanks-wrap">
-        <div class="thanks-card">
-            <div class="thanks-icon">✓</div>
-            <h1>¡Gracias! Hemos recibido tus datos.</h1>
-            <p>Te contactaremos muy pronto para darte una oferta personalizada, sin ningún compromiso.</p>
-            <div class="thanks-actions">
-                <a href="index.html" class="btn btn-outline">Volver al inicio</a>
-                <a href="https://wa.me/34600000000?text=Hola%2C%20acabo%20de%20rellenar%20el%20formulario"
-                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-            </div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Vendemos Rápido" class="logo-img">
+            </a>
         </div>
-    </div>
+    </header>
+
+    <section class="section">
+        <div class="container container-narrow legal-content">
+            <h1>Política de Cookies</h1>
+            <p><em>Última actualización: [FECHA]</em></p>
+
+            <h2>1. ¿Qué son las cookies?</h2>
+            <p>Las cookies son pequeños archivos de texto que este sitio web almacena en tu navegador cuando lo
+                visitas. Se utilizan para que la web funcione correctamente, recordar tus preferencias y, en su caso,
+                analizar cómo se usa el sitio.</p>
+
+            <h2>2. ¿Qué tipos de cookies utilizamos?</h2>
+            <ul>
+                <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para el funcionamiento básico de
+                    la web (por ejemplo, recordar que has cerrado un aviso). No requieren consentimiento.</li>
+                <li><strong>Cookies analíticas:</strong> nos permiten conocer de forma agregada cómo interactúan los
+                    visitantes con el sitio, para poder mejorarlo.</li>
+                <li><strong>Cookies de publicidad/remarketing:</strong> utilizadas por plataformas como Meta
+                    (Facebook/Instagram) para medir el rendimiento de nuestras campañas y mostrar anuncios
+                    relevantes.</li>
+            </ul>
+
+            <h2>3. ¿Quién utiliza las cookies?</h2>
+            <p>Además de las cookies propias de este sitio, pueden instalarse cookies de terceros (por ejemplo, Meta
+                Pixel) cuando interactúas con la web, con la finalidad de medir y optimizar nuestras campañas de
+                publicidad.</p>
+
+            <h2>4. ¿Cómo puedo gestionar las cookies?</h2>
+            <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de
+                las opciones del navegador que utilices. Ten en cuenta que, si desactivas las cookies, es posible que
+                algunas funciones del sitio no operen correctamente.</p>
+
+            <h2>5. Más información</h2>
+            <p>Para cualquier duda sobre esta Política de Cookies, puedes escribirnos a
+                info@vendemosrapido.com. Consulta también nuestra <a href="privacidad.html">Política de
+                    Privacidad</a>.</p>
+
+            <p><a href="index.html">← Volver al inicio</a></p>
+        </div>
+    </section>
+
+    <footer class="footer-bottom">
+        <p>© <span id="year"></span> Vendemos Rápido. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
