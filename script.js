@@ -123,6 +123,35 @@ document.querySelectorAll('.lead-form').forEach((form) => {
   });
 });
 
+// ============ Scroll reveal animations ============
+const revealTargets = document.querySelectorAll('.card, .testimonial');
+
+if (revealTargets.length) {
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealTargets.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${(i % 4) * 80}ms`;
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealTargets.forEach((el) => revealObserver.observe(el));
+  } else {
+    // No IntersectionObserver support or user prefers reduced motion: show immediately
+    revealTargets.forEach((el) => el.classList.add('reveal-visible'));
+  }
+}
+
 // ============ Footer year ============
 const yearEl = document.getElementById('year');
 if (yearEl) {
