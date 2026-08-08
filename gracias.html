@@ -56,26 +56,12 @@
         }
     </style>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel: config only. El pixel real solo se carga tras
+         consentimiento de cookies de publicidad (ver cookie-consent.js) -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1371434301763036');
-        fbq('track', 'PageView');
-        fbq('track', 'Lead');
+        window.metaPixelId = '1371434301763036';
+        window.metaPixelEvents = ['PageView', 'Lead'];
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1371434301763036&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -89,8 +75,11 @@
                 <a href="https://wa.me/34664830230?text=Hola%2C%20acabo%20de%20rellenar%20el%20formulario"
                     class="btn btn-primary" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
             </div>
+            <button type="button" class="footer-cookie-settings" style="margin: 20px auto 0; text-align:center; color: rgba(255,255,255,.5);" onclick="window.CookieConsent && window.CookieConsent.openPreferences()">Configurar cookies</button>
         </div>
     </div>
+
+    <script src="cookie-consent.js" defer></script>
 </body>
 
 </html>

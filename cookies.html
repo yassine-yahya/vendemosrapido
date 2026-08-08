@@ -8,25 +8,12 @@
     <meta name="robots" content="noindex, follow">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel: config only. El pixel real solo se carga tras
+         consentimiento de cookies de publicidad (ver cookie-consent.js) -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1371434301763036');
-        fbq('track', 'PageView');
+        window.metaPixelId = '1371434301763036';
+        window.metaPixelEvents = ['PageView'];
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1371434301763036&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -42,7 +29,7 @@
     <section class="section">
         <div class="container container-narrow legal-content">
             <h1>Política de Cookies</h1>
-            <p><em>Última actualización: 6 de agosto de 2026</em></p>
+            <p><em>Última actualización: 8 de agosto de 2026</em></p>
 
             <h2>1. ¿Qué son las cookies?</h2>
             <p>Las cookies son pequeños archivos de texto que este sitio web almacena en tu navegador cuando lo
@@ -52,23 +39,30 @@
             <h2>2. ¿Qué tipos de cookies utilizamos?</h2>
             <ul>
                 <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para el funcionamiento básico de
-                    la web (por ejemplo, recordar que has cerrado un aviso). No requieren consentimiento.</li>
+                    la web (por ejemplo, recordar tus preferencias de cookies). No requieren consentimiento y no se
+                    pueden desactivar.</li>
                 <li><strong>Cookies analíticas:</strong> nos permiten conocer de forma agregada cómo interactúan los
-                    visitantes con el sitio, para poder mejorarlo.</li>
+                    visitantes con el sitio, para poder mejorarlo. Requieren tu consentimiento.</li>
                 <li><strong>Cookies de publicidad/remarketing:</strong> utilizadas por plataformas como Meta
                     (Facebook/Instagram) para medir el rendimiento de nuestras campañas y mostrar anuncios
-                    relevantes.</li>
+                    relevantes. Requieren tu consentimiento.</li>
             </ul>
 
             <h2>3. ¿Quién utiliza las cookies?</h2>
             <p>Además de las cookies propias de este sitio, pueden instalarse cookies de terceros (por ejemplo, Meta
-                Pixel) cuando interactúas con la web, con la finalidad de medir y optimizar nuestras campañas de
-                publicidad.</p>
+                Pixel) cuando interactúas con la web y das tu consentimiento, con la finalidad de medir y optimizar
+                nuestras campañas de publicidad.</p>
 
             <h2>4. ¿Cómo puedo gestionar las cookies?</h2>
-            <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de
-                las opciones del navegador que utilices. Ten en cuenta que, si desactivas las cookies, es posible que
-                algunas funciones del sitio no operen correctamente.</p>
+            <p>Al entrar por primera vez en la web te mostramos un aviso donde puedes <strong>aceptar todas las
+                    cookies, rechazar las no esenciales</strong> o <strong>configurar tus preferencias</strong> por
+                categoría. Ninguna cookie analítica o de publicidad se instala hasta que la aceptas expresamente.</p>
+            <p>Puedes cambiar tu decisión en cualquier momento pulsando el botón «Configurar cookies», disponible al
+                pie de todas las páginas de este sitio:</p>
+            <p><button type="button" class="btn btn-primary btn-small" onclick="window.CookieConsent && window.CookieConsent.openPreferences()">Configurar mis cookies</button></p>
+            <p>También puedes permitir, bloquear o eliminar las cookies desde la configuración de tu navegador. Ten
+                en cuenta que, si desactivas las cookies, es posible que algunas funciones del sitio no operen
+                correctamente.</p>
 
             <h2>5. Más información</h2>
             <p>Para cualquier duda sobre esta Política de Cookies, puedes escribirnos a
@@ -81,9 +75,11 @@
 
     <footer class="footer-bottom">
         <p>© <span id="year"></span> Vendemos Rápido. Todos los derechos reservados.</p>
+        <button type="button" class="footer-cookie-settings" style="margin: 8px auto 0; text-align:center;" onclick="window.CookieConsent && window.CookieConsent.openPreferences()">Configurar cookies</button>
     </footer>
 
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="cookie-consent.js" defer></script>
 </body>
 
 </html>
