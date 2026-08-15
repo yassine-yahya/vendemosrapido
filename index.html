@@ -93,8 +93,7 @@
                 <p class="hero-desc">Olvida los trámites eternos y los compradores indecisos. Resolvemos deudas,
                     embargos y herencias con liquidez inmediata: vendes hoy, cobras ya.</p>
                 <div class="hero-cta-group">
-                    <a href="#contacto" class="btn btn-primary">Quiero vender rápido →</a>
-                    <a href="#como-funciona" class="btn btn-outline">Ver cómo funciona</a>
+                    <a href="#contacto" class="btn btn-primary btn-full btn-hero-cta">Contacta con nosotros ahora</a>
                 </div>
                 <ul class="trust-strip">
                     <li>🔒 Operación ante notario</li>
@@ -130,6 +129,21 @@
                     <input type="email" id="hero-email" name="Email" placeholder="Email" required>
                     <span class="field-error" data-for="hero-email"></span>
 
+                    <label class="sr-only" for="hero-motivo">Motivo</label>
+                    <select id="hero-motivo" name="Motivo">
+                        <option value="" disabled selected>Motivo</option>
+                        <option>Necesito vender urgente</option>
+                        <option>Es una herencia</option>
+                        <option>Tengo problemas con la hipoteca</option>
+                        <option>Tengo embargo o deuda</option>
+                        <option>Otro</option>
+                    </select>
+
+                    <label for="hero-urgencia" class="range-label">¿Cuánta urgencia tienes en vender tu piso?
+                        <span id="hero-urgencia-value">5</span>/10</label>
+                    <input type="range" id="hero-urgencia" name="Urgencia (1-10)" min="1" max="10" step="1"
+                        value="5" class="range-input">
+
                     <label class="sr-only" for="hero-comentario">Comentario</label>
                     <textarea id="hero-comentario" name="Comentario"
                         placeholder="Cuéntanos brevemente tu situación (opcional)" rows="3"></textarea>
@@ -138,16 +152,6 @@
                 </form>
                 <p class="form-note">Sin compromiso · Datos protegidos (RGPD)</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Trust bar -->
-    <section class="trust-bar">
-        <div class="container trust-bar-inner">
-            <div><strong>4,9/5</strong><span>Valoración media de clientes</span></div>
-            <div><strong>+200</strong><span>Familias que ya vendieron con nosotros</span></div>
-            <div><strong>48h</strong><span>Para recibir el anticipo</span></div>
-            <div><strong>24h</strong><span>Valoración inicial de tu vivienda</span></div>
         </div>
     </section>
 
@@ -262,53 +266,13 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container container-narrow">
-            <p class="eyebrow">Preguntas frecuentes</p>
-            <h2>Todo lo que necesitas saber</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">¿Cuánto tarda la venta de mi piso?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Normalmente entre 7 y 21 días desde que recibimos tus datos. Si eliges el anticipo, recibes
-                            hasta el 50% del valor en tu cuenta en 48 horas tras la firma notarial.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">¿Cobráis comisión por la venta?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Te lo explicamos con total transparencia desde la primera llamada, antes de que tomes ninguna
-                            decisión. Sin sorpresas ni costes ocultos.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">¿En qué zonas operáis?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Operamos en toda España. Cuéntanos dónde está tu vivienda y te confirmamos disponibilidad al
-                            momento.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">¿Necesito tener la documentación al día?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>No es imprescindible. Nuestro equipo te asesora para regularizar cualquier tema pendiente
-                            durante el proceso.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">¿Qué pasa con mis datos personales?<span
-                            class="faq-icon">+</span></button>
-                    <div class="faq-answer">
-                        <p>Se tratan conforme al RGPD y la LOPDGDD. Nunca se comparten con terceros sin tu
-                            consentimiento.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Trust bar -->
+    <section class="trust-bar">
+        <div class="container trust-bar-inner">
+            <div><strong>4,9/5</strong><span>Valoración media de clientes</span></div>
+            <div><strong>+200</strong><span>Familias que ya vendieron con nosotros</span></div>
+            <div><strong>48h</strong><span>Para recibir el anticipo</span></div>
+            <div><strong>24h</strong><span>Valoración inicial de tu vivienda</span></div>
         </div>
     </section>
 
@@ -360,10 +324,6 @@
                 </div>
                 <div class="form-row">
                     <div>
-                        <label for="c-valor">Valor aproximado</label>
-                        <input type="text" id="c-valor" name="Valor aproximado" placeholder="Ej. 150.000 €">
-                    </div>
-                    <div>
                         <label for="c-motivo">Motivo</label>
                         <select id="c-motivo" name="Motivo">
                             <option>Necesito vender urgente</option>
@@ -374,6 +334,12 @@
                         </select>
                     </div>
                 </div>
+
+                <label for="c-urgencia" class="range-label">¿Cuánta urgencia tienes en vender tu piso?
+                    <span id="c-urgencia-value">5</span>/10</label>
+                <input type="range" id="c-urgencia" name="Urgencia (1-10)" min="1" max="10" step="1" value="5"
+                    class="range-input">
+
                 <label for="c-mensaje">Mensaje breve (opcional)</label>
                 <textarea id="c-mensaje" name="Mensaje" rows="3"></textarea>
 
@@ -398,7 +364,6 @@
                 <h4>Enlaces</h4>
                 <a href="#como-funciona">Cómo funciona</a>
                 <a href="#ventajas">Ventajas</a>
-                <a href="#faq">Preguntas frecuentes</a>
                 <a href="#contacto">Contacto</a>
             </div>
             <div>

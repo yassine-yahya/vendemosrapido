@@ -1,3 +1,13 @@
+// ============ Range slider value display ============
+document.querySelectorAll('input[type="range"]').forEach((range) => {
+  const output = document.getElementById(`${range.id}-value`);
+  if (!output) return;
+  output.textContent = range.value;
+  range.addEventListener('input', () => {
+    output.textContent = range.value;
+  });
+});
+
 // ============ Mobile nav toggle ============
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
